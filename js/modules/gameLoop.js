@@ -1,6 +1,6 @@
 ;
 
-// GameLoop
+// Loop
 
 
 (function (platform) {
@@ -8,7 +8,7 @@
 
     var settings = {};
 
-    function GameLoop(options) {
+    function Loop(options) {
         this.settings = options || {};
 
         this.loopId = null;
@@ -19,7 +19,7 @@
         this.stepTime = 1 / 60;
     }
 
-    GameLoop.prototype._frame = function () {
+    Loop.prototype._frame = function () {
         var that = this;
 
         this.nowTime = Ray.Common.helpers.timeStamp();
@@ -40,16 +40,16 @@
     };
 
 
-    GameLoop.prototype.update = function () {
+    Loop.prototype.update = function () {
         /* use this.stepTime in here */
     };
 
-    GameLoop.prototype.render = function () {
+    Loop.prototype.render = function () {
         /* use this.deltaTime in here */
     };
 
 
-    GameLoop.prototype.startLoop = function () {
+    Loop.prototype.startLoop = function () {
         var that = this;
 
         this.loopId = window.requestAnimationFrame(function () {
@@ -57,13 +57,13 @@
         });
     };
 
-    GameLoop.prototype.cancelLoop = function () {
+    Loop.prototype.cancelLoop = function () {
         window.cancelAnimationFrame(this.loopId);
     };
 
-    platform.gameLoop = {
+    platform.loop = {
         create: function (options) {
-            return new GameLoop(options);
+            return new Loop(options);
         }
     };
 
