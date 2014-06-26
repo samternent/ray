@@ -12,14 +12,14 @@
 
         this.keysDown = [];
 
-        this.onkeyup = function (e) {
+        window.onkeyup = function (e) {
             var key = e.keyCode ? e.keyCode : e.which,
-                position = that._keysDown.indexOf(key);
+                position = that.keysDown.indexOf(key);
 
-            that._keysDown.splice(position, 1);
+            that.keysDown.splice(position, 1);
         };
 
-        this.onkeydown = function (e) {
+        window.onkeydown = function (e) {
             var key = e.keyCode ? e.keyCode : e.which;
 
             if (that.keysDown.indexOf(key) < 0) {

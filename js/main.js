@@ -21,7 +21,15 @@
 
 
     mainLoop.update = function () {};
-    mainLoop.render = function () {};
+    mainLoop.render = function () {
+        var keysDown = Ray.Events.keysDown,
+            keyChars = [];
+        keysDown.forEach(function (key) {
+            keyChars.push(String.fromCharCode(key));
+        });
+
+        document.body.innerHTML = keyChars;
+    };
 
     mainLoop.startLoop();
 
