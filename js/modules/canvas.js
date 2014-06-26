@@ -1,7 +1,7 @@
 ;
 
+// Canvas
 
-// canvas and creation
 (function () {
     'use strict';
 
@@ -20,6 +20,8 @@
         this.ctx = null;
         this.container = null;
 
+        this._createCanvas();
+        this._appendToDom()
     };
 
     GameCanvas.prototype._createCanvas = function () {
@@ -36,6 +38,11 @@
 
     };
 
-    Ray.common.canvas = GameCanvas;
+    platform.canvas = {
+        create: function (options) {
+            return new GameCanvas(options);
+        }
 
-})();
+    };
+
+})(platform);

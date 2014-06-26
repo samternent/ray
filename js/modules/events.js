@@ -1,35 +1,34 @@
 ;
 
+//      TODO: write event bus
+
+// Events
+
 (function () {
     'use strict';
 
     function KeyboardEvents() {
         var that = this;
 
-        this._keysDown = [];
+        this.keysDown = [];
 
-        window.onkeyup = function (e) {
+        this.onkeyup = function (e) {
             var key = e.keyCode ? e.keyCode : e.which,
                 position = that._keysDown.indexOf(key);
 
             that._keysDown.splice(position, 1);
         };
 
-        window.onkeydown = function (e) {
+        this.onkeydown = function (e) {
             var key = e.keyCode ? e.keyCode : e.which;
 
-            if (that._keysDown.indexOf(key) < 0) {
-                that._keysDown.push(key);
-                that._processKeyDown();
+            if (that.keysDown.indexOf(key) < 0) {
+                that.keysDown.push(key);
             }
         };
 
     }
 
-    KeyboardEvents.prototype._processKeyDown = function () {
-        console.log(this._keysDown);
-    };
-
-    Ray.common.keyboardEvents = KeyboardEvents;
+    Ray.Events = new KeyboardEvents();
 
 })();

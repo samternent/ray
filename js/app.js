@@ -1,2 +1,8 @@
+// Declare app
+
 var Ray = Ray || {};
-Ray.common = Ray.common || {};
+
+Ray.Common = Ray.Common || {};
+Ray.Events = Ray.Events || {};
+
+var platform = Ray;

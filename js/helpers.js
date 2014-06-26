@@ -1,6 +1,7 @@
 ;
 
-// some helpers
+// Helpers
+
 (function () {
     'use strict';
 
@@ -10,7 +11,7 @@
             new Date().getTime();
     };
 
-    Ray.common.helpers = {
+    Ray.Common.helpers = {
         timeStamp: timeStamp
     };
 
