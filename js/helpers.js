@@ -11,7 +11,15 @@
             new Date().getTime();
     };
 
-    Ray.Common.helpers = {
+
+    Object.prototype.extend = function (destination, source) {
+        for (var property in source) {
+            destination[property] = source[property];
+        }
+        return destination;
+    };
+
+    Ray.Common = {
         timeStamp: timeStamp
     };
 

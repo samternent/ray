@@ -5,32 +5,31 @@
 (function () {
     'use strict';
 
-    var
-        canvas = Ray.canvas.create({
-            containerId: 'main-container',
-            canvas: {
-                width: 500,
-                height: 500
-            }
-        }),
+    var game = {};
 
-        mainLoop = Ray.loop.create();
+    game.canvas = Ray.canvas.create({
+        containerId: 'main-container',
+        canvas: {
+            width: 500,
+            height: 300
+        }
+    });
+
+    game.mainLoop = new Ray.loop(),
+    game.preloader = new Ray.preloader( resources );
 
 
-
-    mainLoop.update = function () {};
-
-    mainLoop.render = function () {
-        var keysDown = Ray.Events.keysDown,
-            keyChars = [];
-
-        keysDown.forEach(function (key) {
-            keyChars.push(String.fromCharCode(key));
-        });
-
-        document.body.innerHTML = keyChars;
+    game.mainLoop.update = function () {
+        game.canvas.clear();
     };
 
-    mainLoop.startLoop();
+    game.mainLoop.render = function () {
 
+    };
+
+    game.mainLoop.startLoop();
+
+
+
+    window.game = game;
 })();

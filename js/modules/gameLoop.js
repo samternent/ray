@@ -13,7 +13,7 @@
 
         this.loopId = null;
 
-        this.lastTime = Ray.Common.helpers.timeStamp();
+        this.lastTime = Ray.Common.timeStamp();
         this.nowTime = null;
         this.deltaTime = null;
         this.stepTime = 1 / 60;
@@ -22,7 +22,7 @@
     Loop.prototype._frame = function () {
         var that = this;
 
-        this.nowTime = Ray.Common.helpers.timeStamp();
+        this.nowTime = Ray.Common.timeStamp();
         this.deltaTime = Math.min(1, (this.nowTime - this.lastTime));
 
         while (this.deltaTime > this.stepTime) {
@@ -61,10 +61,6 @@
         window.cancelAnimationFrame(this.loopId);
     };
 
-    platform.loop = {
-        create: function (options) {
-            return new Loop(options);
-        }
-    };
+    platform.loop = Loop;
 
 })(platform);
