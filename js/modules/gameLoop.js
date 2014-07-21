@@ -13,7 +13,7 @@
 
         this.loopId = null;
 
-        this.lastTime = Ray.Common.timeStamp();
+        this.lastTime = platform.common.timeStamp();
         this.nowTime = null;
         this.deltaTime = null;
         this.stepTime = 1 / 60;
@@ -22,7 +22,7 @@
     Loop.prototype._frame = function () {
         var that = this;
 
-        this.nowTime = Ray.Common.timeStamp();
+        this.nowTime = platform.common.timeStamp();
         this.deltaTime = Math.min(1, (this.nowTime - this.lastTime));
 
         while (this.deltaTime > this.stepTime) {

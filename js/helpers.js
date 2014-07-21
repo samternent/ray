@@ -2,7 +2,7 @@
 
 // Helpers
 
-(function () {
+(function (platform) {
     'use strict';
 
     var timeStamp = function () {
@@ -14,13 +14,13 @@
 
     Object.prototype.extend = function (destination, source) {
         for (var property in source) {
-            destination[property] = source[property];
+            destination[ property ] = source[ property ];
         }
         return destination;
     };
 
-    Ray.Common = {
+    platform.common = {
         timeStamp: timeStamp
     };
 
-})();
+})(platform);

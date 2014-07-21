@@ -34,8 +34,6 @@
         this._createCanvas();
         this._appendToDom();
 
-        this.draw = new platform.draw();
-        this.draw.ctx = this.ctx;
     };
 
     GameCanvas.prototype._createCanvas = function () {
